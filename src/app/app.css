@@ -1,0 +1,75 @@
+/* Navbar Gradient */
+.custom-navbar {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  transition: all 0.4s ease;
+}
+
+/* Logo Styling */
+.logo {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: rotate(10deg) scale(1.1);
+}
+
+/* School Name */
+.school-name {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.school-sub {
+  font-size: 12px;
+  color: #ddd;
+}
+
+/* Navbar Brand Hover */
+.navbar-brand:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+/* Nav Links */
+.nav-animate {
+  position: relative;
+  margin-left: 20px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* Underline Animation */
+.nav-animate::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: #ffd700;
+  left: 0;
+  bottom: 0;
+  transition: 0.3s;
+}
+
+.nav-animate:hover::after {
+  width: 100%;
+}
+
+/* Hover Effect */
+.nav-animate:hover {
+  color: #ffd700 !important;
+}
+
+/* Active Link */
+.active-link {
+  color: #ffd700 !important;
+  font-weight: bold;
+}
+
+/* Navbar Shadow Animation */
+.custom-navbar:hover {
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+}

@@ -1,0 +1,148 @@
+<!-- 
+
+<div class="container mt-4 animate__animated animate__fadeIn">
+  <h2 class="mb-4 text-center">Student List</h2>
+
+  <div class="table-responsive shadow rounded p-3 bg-light">
+    <table class="table table-bordered table-striped table-hover align-middle text-center">
+      
+      <thead class="table-dark">
+        <tr>
+          <th>Sl.No</th>
+          <th>Name</th>
+          <th>Mobile</th>
+          <th>D.O.B</th>
+          <th>Country</th>
+          <th>Gender</th>
+          <th>Is Indian</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let s of students; let i = index"
+            class="animate__animated animate__fadeInUp">
+
+          <td>{{i + 1}}</td>
+          <td>{{s.name}}</td>
+          <td>{{s.mobile}}</td>
+          <td>{{s.dob}}</td>
+          <td>{{s.country}}</td>
+          <td>{{s.gender}}</td>
+          <td>
+            <span class="badge" 
+                  [ngClass]="s.isIndian ? 'bg-success' : 'bg-secondary'">
+              {{s.isIndian ? 'Yes' : 'No'}}
+            </span>
+          </td>
+
+          <td>
+            <button class="btn btn-sm btn-warning me-2 action-btn"
+                    (click)="edit(s)">
+              Edit
+            </button>
+
+            <button class="btn btn-sm btn-danger action-btn"
+                    (click)="delete(s.id)">
+              Delete
+            </button>
+          </td>
+
+        </tr>
+      </tbody>
+
+    </table>
+
+   
+    <div *ngIf="students.length === 0" 
+         class="text-center text-muted mt-3 animate__animated animate__fadeIn">
+      No students found 😔
+    </div>
+  </div>
+</div> -->
+
+<div class="container mt-4 animate__animated animate__fadeIn">
+
+  <!-- Title -->
+  <!-- <h2 class="mb-4 text-center fw-bold text-primary">
+    Student List
+  </h2> -->
+  <h2 class="mb-4 text-center">Student List</h2>
+
+  <!-- Card Container -->
+  <div class="card shadow-lg border-0 rounded-4 p-3">
+
+    <div class="mb-3">
+  <input type="text"
+         class="form-control search-input"
+         placeholder=" Search by student name..."
+         [(ngModel)]="searchText">
+</div>
+
+    <!-- Table -->
+    <div class="table-responsive">
+      <table class="table align-middle text-center custom-table">
+
+        <!-- Header -->
+        <thead>
+          <tr class="table-header">
+            <th>Sl.No</th>
+            <th>Name</th>
+            <th>Mobile</th>
+            <th>D.O.B</th>
+            <th>Country</th>
+            <th>Gender</th>
+            <th>Is Indian</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <!-- Body -->
+        <tbody>
+          <tr *ngFor="let s of filteredStudents; let i = index"
+              class="table-row animate__animated animate__fadeInUp">
+
+            <td>{{i + 1}}</td>
+            <td class="fw-semibold">{{s.name}}</td>
+            <td>{{s.mobile}}</td>
+            <td>{{s.dob}}</td>
+            <td>{{s.country}}</td>
+            <td>
+              <span class="badge gender-badge">
+                {{s.gender}}
+              </span>
+            </td>
+
+            <td>
+              <span class="badge"
+                    [ngClass]="s.isIndian ? 'bg-success' : 'bg-secondary'">
+                {{s.isIndian ? 'Yes' : 'No'}}
+              </span>
+            </td>
+
+         <td>
+  <button class="btn btn-sm btn-outline-secondary me-2 action-btn"
+          (click)="edit(s)">
+    ✏️
+  </button>
+
+  <button class="btn btn-sm btn-outline-secondary action-btn"
+          (click)="delete(s.id)">
+   🚫
+  </button>
+</td>
+
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="students.length === 0"
+         class="text-center text-muted mt-3 animate__animated animate__fadeIn">
+      No students found 😔
+    </div>
+
+  </div>
+</div>
